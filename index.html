@@ -21,14 +21,14 @@ body{
   padding:2rem;
 }
 
-/* ---------------- 标题 ---------------- */
+/* 标题 */
 
 h1.title{
   text-align:center;
   margin-bottom:0.6rem;
 }
 
-/* ---------------- 作者 ---------------- */
+/* 作者 */
 
 .publication-authors{
   text-align:center;
@@ -40,7 +40,7 @@ h1.title{
   margin-bottom:1.8rem;
 }
 
-/* ---------------- 方法图 ---------------- */
+/* 方法图 */
 
 .method-figure{
   display:flex;
@@ -55,7 +55,7 @@ h1.title{
   border-radius:12px;
 }
 
-/* ---------------- Abstract ---------------- */
+/* Abstract */
 
 .abstract{
   background:#ffffff;
@@ -65,13 +65,11 @@ h1.title{
   margin-bottom:2.5rem;
 }
 
-/* ---------------- Demo Section ---------------- */
+/* Demo section */
 
 .effect-section{
   margin-bottom:3rem;
 }
-
-/* Source Target 标题 */
 
 .effect-header{
   display:grid;
@@ -80,12 +78,12 @@ h1.title{
 }
 
 .effect-header span{
-  font-size:1.5rem;   /* title-4 */
+  font-size:1.5rem;
   font-weight:600;
   text-align:left;
 }
 
-/* ---------------- Grid ---------------- */
+/* grid */
 
 .effect-grid{
   display:grid;
@@ -93,7 +91,7 @@ h1.title{
   gap:2rem;
 }
 
-/* ---------------- Cell ---------------- */
+/* cell */
 
 .effect-cell{
 
@@ -110,14 +108,11 @@ h1.title{
   height:100%;
 }
 
-/* ---------------- 图片尺寸控制 ---------------- */
+/* 图片尺寸控制 */
 
 :root{
-
-  --demo-img-height:240px;  /* ⭐ 改这里调图片高度 */
-
+  --demo-img-height:240px;
   --demo-img-width:100%;
-
 }
 
 .effect-cell img{
@@ -125,14 +120,14 @@ h1.title{
   width:var(--demo-img-width);
   height:var(--demo-img-height);
 
-  object-fit:cover;
+  object-fit:fill;   /* 不裁剪，直接拉伸 */
 
   border-radius:8px;
 
   margin-bottom:0.6rem;
 }
 
-/* ---------------- 文本 ---------------- */
+/* 文本 */
 
 .text-box{
 
@@ -146,12 +141,14 @@ h1.title{
 
   margin-bottom:0.6rem;
 
-  font-size:0.95rem;
+  font-size:0.9rem;
+
+  line-height:1.4;
 
   text-align:left;
 }
 
-/* ---------------- audio ---------------- */
+/* audio */
 
 .effect-cell audio{
   width:100%;
@@ -172,7 +169,6 @@ h1.title{
 Harmonic Canvas: Inversion-Free Editing for Visually-Guided Music Style Transfer
 </h1>
 
-
 <!-- 作者 -->
 
 <div class="is-size-5 publication-authors">
@@ -184,7 +180,6 @@ Harmonic Canvas: Inversion-Free Editing for Visually-Guided Music Style Transfer
 
 </div>
 
-
 <div class="is-size-6">
 
 <span class="author-block">
@@ -192,7 +187,6 @@ Harmonic Canvas: Inversion-Free Editing for Visually-Guided Music Style Transfer
 </span>
 
 </div>
-
 
 
 <!-- 方法图 -->
@@ -233,16 +227,13 @@ Music style transfer (MST) aims to reinterpret existing musical pieces in new st
 <div class="effect-grid">
 
 
-<!-- 1 -->
+<!-- 第一组 -->
 
 <div class="effect-cell">
-
-<img src="./static/classical.jpg">
+<img src="./static/classical.jpg" alt="source image">
 
 <div class="text-box">
-
 "This song is an instrumental 80's style synth masterpiece with dense synthesizers and ethereal sounds created through the use of FM synthesis and bells."
-
 </div>
 
 <audio controls>
@@ -253,13 +244,10 @@ Music style transfer (MST) aims to reinterpret existing musical pieces in new st
 
 
 <div class="effect-cell">
-
-<img src="./static/rock.png">
+<img src="./static/rock.png" alt="target image">
 
 <div class="text-box">
-
-"The music track falls within the rock genres, exuding a laid-back and party-like atmosphere..."
-
+"The music track falls within the rock genres, exuding a laid-back and party-like atmosphere. It incorporates a variety of instruments, such as groovy basslines, funky guitar riffs, and rhythmic drum patterns that create a catchy and danceable composition. The central theme of the track revolves around a night out on the town and enjoying the party scene."
 </div>
 
 <audio controls>
@@ -270,16 +258,13 @@ Music style transfer (MST) aims to reinterpret existing musical pieces in new st
 
 
 
-<!-- 2 -->
+<!-- 第二组 -->
 
 <div class="effect-cell">
-
-<img src="./static/metal.png">
+<img src="./static/metal.png" alt="source image">
 
 <div class="text-box">
-
-"The song falls within the rock genre, specifically glam metal..."
-
+"The song falls within the rock genre, specifically glam metal. It exudes a sense of liberation and carefree enjoyment, with joyful and energetic feelings. The composition prominently features electric guitars, bass, drums, and often starting with a catchy guitar riff that sets the tone. The central theme revolves around indulgence and embracing pleasures, encouraging the listener to let go of inhibitions."
 </div>
 
 <audio controls>
@@ -290,13 +275,10 @@ Music style transfer (MST) aims to reinterpret existing musical pieces in new st
 
 
 <div class="effect-cell">
-
-<img src="./static/new_age.png">
+<img src="./static/new_age.png" alt="target image">
 
 <div class="text-box">
-
-"The track falls into the contemporary pop and R&B genre..."
-
+"The track falls into the contemporary pop and R&B genre, enveloping the listener in a deep and passionate emotional journey. It prominently features piano and strings, resulting in a poignant and heartfelt experience. The central theme revolves around profound love and vulnerability, exemplifying a deeply sincere and unconditional connection."
 </div>
 
 <audio controls>
@@ -307,16 +289,13 @@ Music style transfer (MST) aims to reinterpret existing musical pieces in new st
 
 
 
-<!-- 3 -->
+<!-- 第三组 -->
 
 <div class="effect-cell">
-
-<img src="./static/pop.png">
+<img src="./static/pop.png" alt="source image">
 
 <div class="text-box">
-
-"The track typically falls within the pop or contemporary rock genre..."
-
+"The track typically falls within the pop or contemporary rock genre and conveys a mix of emotions, often with a sense of yearning and introspection. Its instrumental arrangement combines acoustic and electric guitars, subtle percussion, and keyboard elements, resulting in a melodic and reflective composition. The central theme frequently delves into the complexities of love, relationships, and the depth of human emotions."
 </div>
 
 <audio controls>
@@ -327,13 +306,10 @@ Music style transfer (MST) aims to reinterpret existing musical pieces in new st
 
 
 <div class="effect-cell">
-
-<img src="./static/traditional.png">
+<img src="./static/traditional.png" alt="target image">
 
 <div class="text-box">
-
-"Mia Fili is a song belonging to the Greek laika genre..."
-
+"Mia Fili is a song belonging to the Greek laika genre, known for evoking a wide range of emotions such as joy and nostalgia. It features traditional instruments like the bouzouki, clarinet, and accordion, creating a captivating sequence that starts with a gentle melody and gradually builds into an energetic and uplifting tune. The central theme of Greek laika music often revolves around love, relationships, and everyday life experiences, making it relatable to a broad audience."
 </div>
 
 <audio controls>
@@ -345,7 +321,6 @@ Music style transfer (MST) aims to reinterpret existing musical pieces in new st
 
 </div>
 </div>
-
 
 </div>
 
