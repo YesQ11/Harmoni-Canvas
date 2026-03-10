@@ -21,14 +21,10 @@ body{
   padding:2rem;
 }
 
-/* 标题 */
-
 h1.title{
   text-align:center;
   margin-bottom:0.6rem;
 }
-
-/* 作者 */
 
 .publication-authors{
   text-align:center;
@@ -65,7 +61,7 @@ h1.title{
   margin-bottom:2.5rem;
 }
 
-/* Demo section */
+/* Demo */
 
 .effect-section{
   margin-bottom:3rem;
@@ -83,7 +79,7 @@ h1.title{
   text-align:left;
 }
 
-/* grid */
+/* Grid */
 
 .effect-grid{
   display:grid;
@@ -91,7 +87,7 @@ h1.title{
   gap:2rem;
 }
 
-/* cell */
+/* Cell */
 
 .effect-cell{
 
@@ -111,21 +107,50 @@ h1.title{
 /* 图片尺寸控制 */
 
 :root{
-  --demo-img-height:240px;
-  --demo-img-width:100%;
+
+/* 第一组 */
+--img1-width:100%;
+--img1-height:240px;
+
+--img2-width:100%;
+--img2-height:240px;
+
+/* 第二组 */
+--img3-width:100%;
+--img3-height:240px;
+
+--img4-width:100%;
+--img4-height:240px;
+
+/* 第三组 */
+--img5-width:100%;
+--img5-height:240px;
+
+--img6-width:100%;
+--img6-height:240px;
+
 }
+
+/* 图片通用 */
 
 .effect-cell img{
 
-  width:var(--demo-img-width);
-  height:var(--demo-img-height);
-
-  object-fit:fill;   /* 不裁剪，直接拉伸 */
+  object-fit:fill;
 
   border-radius:8px;
 
   margin-bottom:0.6rem;
+
 }
+
+/* 单独控制 */
+
+.img1{ width:var(--img1-width); height:var(--img1-height); }
+.img2{ width:var(--img2-width); height:var(--img2-height); }
+.img3{ width:var(--img3-width); height:var(--img3-height); }
+.img4{ width:var(--img4-width); height:var(--img4-height); }
+.img5{ width:var(--img5-width); height:var(--img5-height); }
+.img6{ width:var(--img6-width); height:var(--img6-height); }
 
 /* 文本 */
 
@@ -163,74 +188,47 @@ h1.title{
 
 <div class="container">
 
-<!-- 标题 -->
-
 <h1 class="title">
 Harmonic Canvas: Inversion-Free Editing for Visually-Guided Music Style Transfer
 </h1>
 
-<!-- 作者 -->
-
 <div class="is-size-5 publication-authors">
-
 <span class="author-block">Yue Lei<sup>1</sup>, </span>
 <span class="author-block">Siqi Yang<sup>1</sup>, </span>
 <span class="author-block">Ting Zhong<sup>1</sup>, </span>
 <span class="author-block">Fan Zhou<sup>1</sup></span>
-
 </div>
 
 <div class="is-size-6">
-
 <span class="author-block">
 <sup>1</sup>University of Electronic Science and Technology of China, Chengdu, Sichuan, China
 </span>
-
 </div>
-
-
-<!-- 方法图 -->
 
 <div class="method-figure">
-
 <img src="./static/method_v2.jpg" alt="Method">
-
 </div>
-
-
-
-<!-- Abstract -->
 
 <h2 class="title is-4">Abstract</h2>
 
 <div class="abstract">
-
 Music style transfer (MST) aims to reinterpret existing musical pieces in new stylistic forms while maintaining their melodic coherence. Conventional approaches conditioned on text or audio overlook the profoundly multimodal character of musical style. Visual ambience -- reflected in color, lighting, and composition -- encodes affective attributes that parallel timbre, rhythm, and harmony, which, however, remain underexplored in MST context. We introduce a flow-based, inversion-free framework for multimodal music style transfer that unifies textual and visual guidance. Our approach tackles two challenges: (1) capturing cross-modal semantics beyond language through a dual-encoder fusion module that merges CLIP- and ViT-derived embeddings, and (2) preserving melodic identity using a differentiable normalized chroma constraint that regulates pitch-class consistency along the generative flow. We reorganize and extend the MeLBench and MusicCaps collections into a genre-structured multimodal dataset to support style-aware analysis. Quantitative and perceptual evaluations demonstrate that our approach achieves superior control, structural fidelity, and cross-modal expressiveness, underscoring the role of visual perception in music generation.
-
 </div>
 
-
-
-<!-- Demo -->
 
 <div class="effect-section">
 
 <div class="effect-header">
-
 <span>Source</span>
 <span>Target</span>
-
 </div>
 
-
-
 <div class="effect-grid">
-
 
 <!-- 第一组 -->
 
 <div class="effect-cell">
-<img src="./static/classical.jpg" alt="source image">
+<img class="img1" src="./static/classical.jpg">
 
 <div class="text-box">
 "This song is an instrumental 80's style synth masterpiece with dense synthesizers and ethereal sounds created through the use of FM synthesis and bells."
@@ -239,12 +237,10 @@ Music style transfer (MST) aims to reinterpret existing musical pieces in new st
 <audio controls>
 <source src="./static/classical.wav" type="audio/wav">
 </audio>
-
 </div>
 
-
 <div class="effect-cell">
-<img src="./static/rock.png" alt="target image">
+<img class="img2" src="./static/rock.png">
 
 <div class="text-box">
 "The music track falls within the rock genres, exuding a laid-back and party-like atmosphere. It incorporates a variety of instruments, such as groovy basslines, funky guitar riffs, and rhythmic drum patterns that create a catchy and danceable composition. The central theme of the track revolves around a night out on the town and enjoying the party scene."
@@ -253,15 +249,12 @@ Music style transfer (MST) aims to reinterpret existing musical pieces in new st
 <audio controls>
 <source src="./static/classical_to_rock.wav" type="audio/wav">
 </audio>
-
 </div>
-
-
 
 <!-- 第二组 -->
 
 <div class="effect-cell">
-<img src="./static/metal.png" alt="source image">
+<img class="img3" src="./static/metal.png">
 
 <div class="text-box">
 "The song falls within the rock genre, specifically glam metal. It exudes a sense of liberation and carefree enjoyment, with joyful and energetic feelings. The composition prominently features electric guitars, bass, drums, and often starting with a catchy guitar riff that sets the tone. The central theme revolves around indulgence and embracing pleasures, encouraging the listener to let go of inhibitions."
@@ -270,12 +263,10 @@ Music style transfer (MST) aims to reinterpret existing musical pieces in new st
 <audio controls>
 <source src="./static/metal.wav" type="audio/wav">
 </audio>
-
 </div>
 
-
 <div class="effect-cell">
-<img src="./static/new_age.png" alt="target image">
+<img class="img4" src="./static/new_age.png">
 
 <div class="text-box">
 "The track falls into the contemporary pop and R&B genre, enveloping the listener in a deep and passionate emotional journey. It prominently features piano and strings, resulting in a poignant and heartfelt experience. The central theme revolves around profound love and vulnerability, exemplifying a deeply sincere and unconditional connection."
@@ -284,15 +275,12 @@ Music style transfer (MST) aims to reinterpret existing musical pieces in new st
 <audio controls>
 <source src="./static/metal_to_new_age.wav" type="audio/wav">
 </audio>
-
 </div>
-
-
 
 <!-- 第三组 -->
 
 <div class="effect-cell">
-<img src="./static/pop.png" alt="source image">
+<img class="img5" src="./static/pop.png">
 
 <div class="text-box">
 "The track typically falls within the pop or contemporary rock genre and conveys a mix of emotions, often with a sense of yearning and introspection. Its instrumental arrangement combines acoustic and electric guitars, subtle percussion, and keyboard elements, resulting in a melodic and reflective composition. The central theme frequently delves into the complexities of love, relationships, and the depth of human emotions."
@@ -301,12 +289,10 @@ Music style transfer (MST) aims to reinterpret existing musical pieces in new st
 <audio controls>
 <source src="./static/pop.wav" type="audio/wav">
 </audio>
-
 </div>
 
-
 <div class="effect-cell">
-<img src="./static/traditional.png" alt="target image">
+<img class="img6" src="./static/traditional.png">
 
 <div class="text-box">
 "Mia Fili is a song belonging to the Greek laika genre, known for evoking a wide range of emotions such as joy and nostalgia. It features traditional instruments like the bouzouki, clarinet, and accordion, creating a captivating sequence that starts with a gentle melody and gradually builds into an energetic and uplifting tune. The central theme of Greek laika music often revolves around love, relationships, and everyday life experiences, making it relatable to a broad audience."
@@ -315,9 +301,7 @@ Music style transfer (MST) aims to reinterpret existing musical pieces in new st
 <audio controls>
 <source src="./static/pop_to_traditional.wav" type="audio/wav">
 </audio>
-
 </div>
-
 
 </div>
 </div>
