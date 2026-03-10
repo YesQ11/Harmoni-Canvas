@@ -1,292 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Noisy SLU Samples</title>
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/icon/uestc.png">
-  <style>
-    /* ----------------- 公共样式 ----------------- */
-    .container {
-      padding-left: 2rem;   /* 默认是 1.5rem，可以调大 */
-      padding-right: 2rem;
-    }
-    .sample-box {
-      border: 2px solid rgba(88, 89, 91, 0.338);
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 12px;   /* 圆角长方形 */
-    }
-    .audio-label {
-      font-weight: bold;
-      margin-bottom: 0.2rem;
-      display: block;
-    }
-    .text-box {
-      border: 1px solid #ffffff;
-      background-color: #f7f7f7;
-      padding: 0.5rem;
-      margin-bottom: 0.5rem;
-      width: 100%;
-      box-sizing: border-box;
-      border-radius: 12px;   /* 圆角长方形 */
-    }
-    /*-------展示区和情景0之间间距---------*/
-    .subtitle:first-of-type {
-      margin-top: 15rem; /* 单独让第一个 subtitle 和上面空开 */
-    }
-
-    /* ----------------- 情景0 ----------------- */
-    .scenario0 .column {
-      display: block;
-    }
-    .scenario0 audio {
-      width: 85%;
-    }
-    .scenario0 .content {
-      margin-top: 0.5rem;
-    }
-    /* 情景0整体边框 */
-    .scenario0-box {
-      border: 2px solid rgba(88, 89, 91, 0.338); /* 边框颜色和粗细 */
-      border-radius: 10px;                       /* 圆角 */
-      padding: 1rem;                             /* 内边距 */
-      margin-bottom: 1rem;                       /* 下方间距 */
-    }
-
-    /* ----------------- 情景1 ----------------- */
-    .scenario1 .column.is-one-third {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-    .scenario1 audio {
-      width: 100%;
-    }
-    .scenario1 .text-box {
-      background-color: #f7f7f7;
-      width: 100%;
-      padding: 0.3rem 0.5rem;
-      font-size: 1.1rem;
-      overflow-y: hidden;            /* 超过 max-height 时出现纵向滚动 */
-      margin-top: 0.1rem;          /* 控制语音播放器与文本框的上下间距 */
-      height: 60px;       /* 固定高度 */
-      margin-bottom: 0.5rem; /* 单独调间距 */
-      border-radius: 12px;   /* 圆角长方形 */
-    }
-
-    /* ----------------- 情景2 和 3 ----------------- */
-    .scenario2_3 .column.is-one-third {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .scenario2_3 .audio-block {
-      margin-bottom: 0.5rem;
-    }
-    .scenario2_3 audio {
-      width: 100%;
-    }
-    .scenario2_3 .text-box {
-      background-color: #f7f7f7;   /* 文本框背景色 */
-      width: 100%;
-      padding: 0.3rem 0.5rem;      /* 控制文字与边框的内边距 */
-      font-size: 1.1rem;
-
-      /* 以下是高度相关控制 */
-      
-      overflow-y: hidden;            /* 超过 max-height 时出现纵向滚动 */
-      margin-top: 0.1rem;          /* 控制语音播放器与文本框的上下间距 */
-      height: 60px;       /* 固定高度 */
-      margin-bottom: 0.5rem; /* 单独调间距 */
-      border-radius: 12px;   /* 圆角长方形 */
-    }
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>论文展示页面</title>
+<link rel="stylesheet" href="./static/css/bulma.min.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  h1.title {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  h2.subtitle {
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 2rem;
+  }
+  .method-figure {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .method-figure img {
+    max-width: 80%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+  }
+  .abstract {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  .effect-section {
+    margin-bottom: 3rem;
+  }
+  .effect-section h3 {
+    margin-bottom: 1rem;
+  }
+  .effect-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .effect-cell {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .effect-cell img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+  }
+  .effect-cell .text-box {
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .effect-cell audio {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  .effect-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
 </style>
-
 </head>
 <body>
 
-<section class="section py-5"> <!-- 上下 padding 改小 -->
-  <div class="container">
-    <div class="image">
-      <img src="./static/icon/huawei_demo.png" alt="Example Image" style="max-width:82%; height: auto;">
+<div class="container">
+
+  <!-- 标题与作者 -->
+  <h1 class="title">论文标题示例</h1>
+  <h2 class="subtitle">作者A, 作者B, 作者C</h2>
+
+  <!-- 方法图 -->
+  <div class="method-figure">
+    <img src="/mnt/data/0524e1ac-6b3e-4011-b224-e7c2eceb4343.png" alt="方法示意图">
+  </div>
+
+  <!-- 摘要 -->
+  <div class="abstract">
+    <strong>摘要：</strong>
+    本文提出了一种新颖的方法用于复杂场景下的语音理解任务。通过多模态输入和特征增强技术，提高了模型在噪声环境下的鲁棒性。实验结果显示，本方法在不同数据集上均获得了显著提升。
+  </div>
+
+  <!-- 效果展示 -->
+  <div class="effect-section">
+    <div class="effect-header">
+      <span>Source</span>
+      <span>Target</span>
+    </div>
+
+    <!-- 三行两列效果展示 -->
+    <div class="effect-grid">
+
+      <!-- 第一组 -->
+      <div class="effect-cell">
+        <img src="./static/classical.jpg" alt="source image">
+        <div class="text-box">classical</div>
+        <audio controls>
+          <source src="./static/classical.wav" type="audio/wav">
+        </audio>
+      </div>
+      <div class="effect-cell">
+        <img src="./static/classical_to_rock.wav" alt="target image">
+        <div class="text-box">classical_to_rock</div>
+        <audio controls>
+          <source src="./static/classical_to_rock.wav" type="audio/wav">
+        </audio>
+      </div>
+
+      <!-- 第二组 -->
+      <div class="effect-cell">
+        <img src="./static/metal.png" alt="source image">
+        <div class="text-box">metal</div>
+        <audio controls>
+          <source src="./static/metal.wav" type="audio/wav">
+        </audio>
+      </div>
+      <div class="effect-cell">
+        <img src="./static/metal_to_new_age.wav" alt="target image">
+        <div class="text-box">metal_to_new_age</div>
+        <audio controls>
+          <source src="./static/metal_to_new_age.wav" type="audio/wav">
+        </audio>
+      </div>
+
+      <!-- 第三组 -->
+      <div class="effect-cell">
+        <img src="./static/pop.png" alt="source image">
+        <div class="text-box">pop</div>
+        <audio controls>
+          <source src="./static/pop.wav" type="audio/wav">
+        </audio>
+      </div>
+      <div class="effect-cell">
+        <img src="./static/pop_to_traditional.wav" alt="target image">
+        <div class="text-box">pop_to_traditional</div>
+        <audio controls>
+          <source src="./static/pop_to_traditional.wav" type="audio/wav">
+        </audio>
+      </div>
+
     </div>
   </div>
-</section>
 
-<!--  <section class="section mt-0">  -->
-<section class="section py-5"> 
-  <div class="container">
-    <h1 class="title">复杂噪声场景下表现</h1>
-
-    <!-- 情景1 ------------------------------------------------------------------------------------------>
-    <!-- <h2 class="subtitle">场景一：不同位置插入无关语音</h2> -->
-
-    <!-- 样本1 -->
-    <div class="sample-box scenario1">
-      <div class="columns is-vcentered">
-        <!-- 左列：源语音、插入后语音 -->
-        <div class="column is-one-third">
-          <div class="audio-block">
-            <span class="audio-label">源语音</span>
-            <audio controls>
-              <source src="./static/audio2/audio--1505407237-headset.wav" type="audio/wav">
-            </audio>
-          </div>
-          <!-- <div class="audio-block">
-            <span class="audio-label">插入后语音</span>
-            <audio controls>
-              <source src="./static/audio/wuguan_clean/audio--1505407237_wuguanyuyin02-TTS1505407237_n7.wav" type="audio/wav">
-            </audio>
-          </div> -->
-        </div>
-        <!-- 右列：oracle、ASR、意图GT、意图结果 -->
-        <div class="column">
-          <div class="text-box"><strong>ASR: </strong>continue the song from the audio book by the beatles</div>
-          <!-- <div class="text-box"><strong>ASR:</strong> resume the song from the audiobook by the beatles these tomatoes are less expensive</div> -->
-          <div class="text-box"><strong>意图: </strong>播放-有声书播放</div>
-          <!-- <div class="text-box"><strong>Prediction:</strong> 意图: play_audiobook, 实体: [player_setting=resume, media_type=audiobook, artist_name=beatles]</div> -->
-        </div>
-      </div>
-    </div>
-
-    <!-- 样本2 -->
-    <div class="sample-box scenario1">
-      <div class="columns is-vcentered">
-        <!-- 左列：源语音、插入后语音 -->
-        <div class="column is-one-third">
-          <div class="audio-block">
-            <span class="audio-label">源语音</span>
-            <audio controls>
-              <source src="./static/audio2/audio-1490264244.wav" type="audio/wav">
-            </audio>
-          </div>
-          <!-- <div class="audio-block">
-            <span class="audio-label">插入后语音</span>
-            <audio controls>
-              <source src="./static/audio/wuguan_clean/audio--1490264244_wuguanyuyin01-TTS1490264244_n1.wav" type="audio/wav">
-            </audio>
-          </div> -->
-        </div>
-        <!-- 右列：oracle、ASR、意图GT、意图结果 -->
-        <div class="column">
-          <div class="text-box"><strong>ASR:</strong> you played them last year you were beaten by the weather you played them last year</div>
-          <!-- <div class="text-box"><strong>ASR:</strong> remind me tonight to pick up do you need some water clean at eight pm</div> -->
-          <div class="text-box"><strong>意图: </strong>日程-设置日程</div>
-          <!-- <div class="text-box"><strong>Prediction:</strong> 意图: calendar_set, 实体: [event_name=pick up, timeofday=tonight]</div> -->
-        </div>
-      </div>
-    </div>
-
-    <!-- 样本3 -->
-    <div class="sample-box scenario1">
-      <div class="columns is-vcentered">
-        <div class="column is-one-third">
-          <div class="audio-block">
-            <span class="audio-label">源语音</span>
-            <audio controls>
-              <source src="./static/audio2/audio--1504190218.wav" type="audio/wav">
-            </audio>
-          </div>
-          <!-- <div class="audio-block">
-            <span class="audio-label">插入后语音</span>
-            <audio controls>
-              <source src="./static/audio/wuguan_clean/audio--1504190218_wuguanyuyin01-TTS1504190218_n0.wav" type="audio/wav">
-            </audio>
-          </div> -->
-        </div>
-        <div class="column">
-          <div class="text-box"><strong>ASR:</strong> play a game of contra as a second player</div>
-          <!-- <div class="text-box"><strong>ASR:</strong> i will do my homework as soon as possible play a game of contra as a second player</div> -->
-          <div class="text-box"><strong>意图: </strong>启动-打开游戏</div>
-          <!-- <div class="text-box"><strong>Prediction:</strong> 意图: general_quirky, 实体: [ ]<span class="red-text">（归到异常类，即拒识）</span></div> -->
-        </div>
-      </div>
-    </div>
-
-    <!-- 样本4 -->
-    <div class="sample-box scenario2_3">
-      <div class="columns is-vcentered">
-        <!-- 左列：源语音、插入后语音、增强后语音 -->
-        <div class="column is-one-third">
-          <div class="audio-block">
-            <span class="audio-label">源语音</span>
-            <audio controls>
-              <source src="./static/audio2/audio-1501778636-headset.wav" type="audio/wav">
-            </audio>
-          </div>
-          <!-- <div class="audio-block">
-            <span class="audio-label">插入后语音</span>
-            <audio controls>
-              <source src="./static/audio/wuguan_env/audio--1501778636_wuguanyuyin02-TTS1501778636_n0.wav" type="audio/wav">
-            </audio>
-          </div>
-          <div class="audio-block">
-            <span class="audio-label">增强后语音</span>
-            <audio controls>
-              <source src="./static/audio/wuguan_env_enhanced/audio--1501778636_wuguanyuyin02-TTS1501778636_n0_enh.wav" type="audio/wav">
-            </audio>
-          </div> -->
-        </div>
-        <!-- 右列：oracle、ASR、意图GT、意图结果 -->
-        <div class="column">
-          <div class="text-box"><strong>ASR:</strong> whats the currency exchange rate for china</div>
-          <!-- <div class="text-box"><strong>ASR:</strong> you should store the fruit in a fridge what is the currency exchange rate for china</div> -->
-          <div class="text-box"><strong>意图: </strong>问答-汇率查询 </div>
-          <!-- <div class="text-box"><strong>Prediction:</strong> 意图: general_quirky, 实体: [ ]<span class="red-text">（归到异常类，即拒识）</span></div> -->
-        </div>
-      </div>
-    </div>
-
-    <!-- 样本5 -->
-    <div class="sample-box scenario2_3">
-      <div class="columns is-vcentered">
-        <!-- 左列：源语音、插入后语音、增强后语音 -->
-        <div class="column is-one-third">
-          <div class="audio-block">
-            <span class="audio-label">源语音</span>
-            <audio controls>
-              <source src="./static/audio2/audio-1490184513.wav" type="audio/wav">
-            </audio>
-          </div>
-
-        </div>
-        <!-- 右列：oracle、ASR、意图GT、意图结果 -->
-        <div class="column">
-          <div class="text-box"><strong>ASR:</strong> pta are you real</div>
-          <div class="text-box"><strong>意图: </strong>拒识 </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 样本6 -->
-    <div class="sample-box scenario2_3">
-      <div class="columns is-vcentered">
-        <!-- 左列：源语音、插入后语音、增强后语音 -->
-        <div class="column is-one-third">
-          <div class="audio-block">
-            <span class="audio-label">源语音</span>
-            <audio controls>
-              <source src="./static/audio2/audio-1492780048.wav" type="audio/wav">
-            </audio>
-          </div>
-
-        </div>
-        <!-- 右列：oracle、ASR、意图GT、意图结果 -->
-        <div class="column">
-          <div class="text-box"><strong>ASR:</strong> what do you think about future</div>
-          <div class="text-box"><strong>意图: </strong>拒识 </div>
-        </div>
-      </div>
-    </div>
-
-    
-
-  </div>
-</section>
+</div>
 
 </body>
 </html>
