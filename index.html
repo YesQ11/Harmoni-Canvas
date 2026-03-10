@@ -91,7 +91,18 @@
 
   <!-- 标题与作者 -->
   <h1 class="title">Harmonic Canvas: Inversion-Free Editing for Visually-Guided Music Style Transfer</h1>
-  <h2 class="subtitle">作者A, 作者B, 作者C</h2>
+  <div class="is-size-5 publication-authors">
+    <span class="author-block">Yue Lei<sup>1</sup>, </span>
+    <span class="author-block">Siqi Yang<sup>1</sup>, </span>
+    <span class="author-block">Ting Zhong<sup>1</sup>, </span>
+    <span class="author-block">Fan Zhou<sup>1</sup></span>
+  </div>
+
+  <div class="is-size-6">
+    <span class="author-block">
+      <sup>1</sup>University of Electronic Science and Technology of China, Chengdu, Sichuan, China
+    </span>
+  </div>
 
   <!-- 方法图 -->
   <div class="method-figure">
@@ -99,8 +110,9 @@
   </div>
 
   <!-- 摘要 -->
+  <h2 class="title is-4">Abstract</h2>
+
   <div class="abstract">
-    <strong>Abstract</strong>
     Music style transfer (MST) aims to reinterpret existing musical pieces in new stylistic forms while maintaining their melodic coherence. Conventional approaches conditioned on text or audio overlook the profoundly multimodal character of musical style. Visual ambience -- reflected in color, lighting, and composition -- encodes affective attributes that parallel timbre, rhythm, and harmony, which, however, remain underexplored in MST context. We introduce a flow-based, inversion-free framework for multimodal music style transfer that unifies textual and visual guidance. Our approach tackles two challenges: (1) capturing cross-modal semantics beyond language through a dual-encoder fusion module that merges CLIP- and ViT-derived embeddings, and (2) preserving melodic identity using a differentiable normalized chroma constraint that regulates pitch-class consistency along the generative flow. We reorganize and extend the MeLBench and MusicCaps collections into a genre-structured multimodal dataset to support style-aware analysis. Quantitative and perceptual evaluations demonstrate that our approach achieves superior control, structural fidelity, and cross-modal expressiveness, underscoring the role of visual perception in music generation.
   </div>
 
